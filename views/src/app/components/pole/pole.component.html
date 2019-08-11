@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-2 col-sm-2">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <h4>
+           {{ pole.poleNos}}
+          </h4>
+        </div>
+      </div>
+  </div>
+  <div class="col-10 col-sm-6 col-sm-10">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <div class="container">
+            <div class="row center">
+                <div class="col col-s4">
+                  <i class="material-icons md-48" [ngClass]= "{red1: pole.poleData[1].busy === 'Yes', green1: pole.poleData[1].busy === 'No' }"
+                  [routerLink]="['/confirm', pole.poleNos, pole.poleData[1].busy, pole.poleData[1].id, pole.poleData[1].unit]" style="cursor: pointer">
+                    {{pole.poleData[1].busy === 'Yes' ? 'battery_charging_full' : 'battery_std'}}
+                  </i>
+                </div>
+                <div class="col col-s4">
+                    <i class="material-icons md-48" [ngClass]= "{red1: pole.poleData[0].busy === 'Yes', green1: pole.poleData[0].busy === 'No' }"
+                     [routerLink]="['/confirm', pole.poleNos, pole.poleData[0].busy, pole.poleData[0].id, pole.poleData[0].unit ]" style="cursor: pointer">
+                      {{pole.poleData[0].busy === 'Yes' ? 'battery_charging_full' : 'battery_std'}}
+                    </i>
+                </div>
+                <div class="col col-s4">
+                    <i class="material-icons md-48 orange600" [routerLink]="['/confirm', pole.poleNos, '', '', '']" style="cursor: pointer">
+                      query_builder
+                    </i>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

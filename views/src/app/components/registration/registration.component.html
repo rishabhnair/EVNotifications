@@ -1,0 +1,87 @@
+<div class="row mt-5 continer">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i> Register
+      </h1>
+      <form (ngSubmit)="addUserRegistrationInfo(form)" #form="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            class="form-control"
+            placeholder="Enter Name"
+            value=""
+            ngModel
+            required
+            #nameCtrl= "ngModel"
+          >
+          <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email"
+            value=""
+            ngModel
+            required
+            email
+            #emailCtrl= "ngModel"
+          >
+          <span class="help-block" *ngIf="emailCtrl.invalid && emailCtrl.touched">Please enter a valid email</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password"
+            value=""
+            ngModel
+            minlength="6"
+            required
+            #passwordCtrl= "ngModel"
+          >
+          <span class="help-block" *ngIf="passwordCtrl.invalid && passwordCtrl.touched">Password must be more than 6 characters</span>
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password"
+            value=""
+            ngModel
+            minlength="6"
+            required
+            #password2Ctrl= "ngModel"
+          >
+          <span class="help-block" *ngIf="password2Ctrl !== passwordCtrl && password2Ctrl.touched && password2Ctrl.invalid">
+            Passwords do not match
+          </span>
+        </div>
+        <div class="col-md-2 m-auto">
+          <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+            Register
+          </button>
+        </div>
+      </form>
+      <p class="lead mt-4">Have An Account? <a routerLink="/login">Login</a></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
